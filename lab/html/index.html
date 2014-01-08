@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Flies Fly: Prototype for User Experience (gameplay)</title>
+  </head>
+  <body>
+    <h1>Flies Fly: Prototype for User Experience (gameplay)</h1>
+    <p>Press the space bar, hold it, release it.</p>
+    <div id="out"></div>
+    <script>
+      var outDiv = document.getElementById('out');
+
+      function print( message ) {
+        outDiv.innerHTML = message;
+      }
+
+      function no( value ) {
+        var undef; // do not trust global undefined, which can be set to a value
+        return value === null || value === undef;
+      }
+
+      function or( a, b ) {
+        return no( a )? b: a;
+      }
+
+      function getKeyCode( event ) {
+        event = or( event, window.event );
+        return event.keyCode;
+      }
+
+      var SPACE_KEYCODE = 32;
+
+      function isSpaceBar( event ) {
+        return getKeyCode( event ) === SPACE_KEYCODE;
+      }
+
+      window.onkeydown = function( event ) {
+        if ( isSpaceBar( event ) ) {
+          print( "Space bar pressed." );
+        }
+      };
+
+      window.onkeyup = function( event ) {
+        if ( isSpaceBar( event ) ) {
+          print( "Space bar released." );
+        }
+      };
+    </script>
+  </body>
+</html>
