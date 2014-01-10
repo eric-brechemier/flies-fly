@@ -20,9 +20,6 @@ within("ukulo.com/flies-fly", function( publish, subscribe, get, set ) {
     if ( get( "game-over" ) ) {
       return;
     }
-    if ( !get( "start-game" ) ) {
-      publish( "start-game" );
-    }
     publish( "start-round" );
     endRoundTimeout = setTimeout(endRound, MAX_ROUND_DURATION_MS);
   }
