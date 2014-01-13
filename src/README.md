@@ -8,5 +8,6 @@ Each sub-folder corresponds to a different platform:
 
 * Web
 * Shell
+* Mobile
 * Desktop
 * TV
